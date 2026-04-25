@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-goes-here'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, 'chat.db')
+DB_PATH = os.environ.get('DB_PATH', os.path.join(BASE_DIR, 'chat.db'))
 app.config['DB_PATH'] = DB_PATH
 
 # ── SignalWire config — set these in your WSGI file via os.environ ────────────
